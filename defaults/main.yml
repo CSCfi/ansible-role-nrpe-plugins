@@ -1,0 +1,19 @@
+---
+# defaults file for ansible-role-nrpe-plugins
+
+#opsview:
+#nrpe_check_location: "/usr/local/nagios/libexec"
+#nrpe:
+nrpe_check_location: "/usr/lib64/nagios/plugins"
+######
+nrpe_remote_url_checks:
+ - { url: "", name: "", checksum: "" }
+# - { url: "http://url1/check_custom", name: "check_url", checksum: "" }
+nrpe_local_checks:
+ - { path: "", name: "" }
+# - { path: "files/check_custom2", name: "check_custom2" }
+
+nrpe_user: "nrpe"
+nrpe_group: "nrpe"
+nrpe_check_mode: "0555"
+nrpe_check_backup: "no"

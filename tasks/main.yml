@@ -1,0 +1,15 @@
+---
+# tasks file for ansible-role-nrpe-plugins
+
+# When upgrading to ansible 2.0 sha256sum needs to be replaced with checksum=
+ - name: get_url the remote checks
+   get_url: url={{ item.url }} dest={{ nrpe_check_location }}/{{ item.name }} 
+            owner={{ nrpe_user }} group={{ nrpe_group }} mode={{ nrpe_check_mode }} backup={{ nrpe_check_backup }}
+            sha256sum={{ item.checksum }}
+   with_items: nrpe_remote_url_checks
+   when: nrpe_remote_url_checks.0.url != ""
+
+ - name: copy the local checks
+   copy: src={{ item.path }} dest={{ nrpe_check_location }}/{{ item }} owner={{ nrpe_user }} group={{ nrpe_group }} mode={{ nrpe_check_mode }} backup={{ nrpe_check_backup }}
+   with_items: nrpe_local_checks
+   when: nrpe_local_checks.0.path != ""
