@@ -10,6 +10,6 @@
    when: nrpe_remote_url_checks.0.url != ""
 
  - name: copy the local checks
-   copy: src={{ item.path }} dest={{ nrpe_check_location }}/{{ item }} owner={{ nrpe_user }} group={{ nrpe_group }} mode={{ nrpe_check_mode }} backup={{ nrpe_check_backup }}
+   copy: src={{ item.path }} dest={{ nrpe_check_location }}/{{ item.name }} owner={{ nrpe_user }} group={{ nrpe_group }} mode={{ nrpe_check_mode }} backup={{ nrpe_check_backup }}
    with_items: nrpe_local_checks
    when: nrpe_local_checks.0.path != ""
