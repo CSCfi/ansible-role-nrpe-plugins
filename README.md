@@ -1,7 +1,7 @@
 ansible-role-nrpe-plugins
 =========
 
-[![Build Status](https://travis-ci.org/CSC-IT-Center-for-Science/ansible-role-nrpe.svg?branch=master)](https://travis-ci.org/CSC-IT-Center-for-Science/ansible-role-nrpe)
+[![Build Status](https://travis-ci.org/CSC-IT-Center-for-Science/ansible-role-nrpe-plugins.svg?branch=master)](https://travis-ci.org/CSC-IT-Center-for-Science/ansible-role-nrpe-plugins)
 
 This is not a place where to store nagios checks. It can:
 
