@@ -17,3 +17,9 @@ nrpe_user: "nrpe"
 nrpe_group: "nrpe"
 nrpe_check_mode: "0555"
 nrpe_check_backup: "no"
+
+nrpe_pip_checks:
+ - { name: "nagiosplugin" }
+
+nrpe_python_packages:
+ - python-pip
