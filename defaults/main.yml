@@ -19,7 +19,7 @@ nrpe_check_mode: "0555"
 nrpe_check_backup: "no"
 
 nrpe_pip_checks:
- - { name: "nagiosplugin" }
+ - { name: "" }
 
 nrpe_python_packages:
  - python-pip
