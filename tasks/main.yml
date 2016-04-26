@@ -6,12 +6,12 @@
    get_url: url={{ item.url }} dest={{ nrpe_check_location }}/{{ item.name }} 
             owner={{ nrpe_user }} group={{ nrpe_group }} mode={{ nrpe_check_mode }} backup={{ nrpe_check_backup }}
             sha256sum={{ item.checksum }}
-   with_items: nrpe_remote_url_checks
+   with_items: "{{ nrpe_remote_url_checks }}"
    when: nrpe_remote_url_checks.0.url != ""
 
  - name: copy the local checks
    copy: src={{ item.path }} dest={{ nrpe_check_location }}/{{ item.name }} owner={{ nrpe_user }} group={{ nrpe_group }} mode={{ nrpe_check_mode }} backup={{ nrpe_check_backup }}
-   with_items: nrpe_local_checks
+   with_items: "{{ nrpe_local_checks }}"
    when: nrpe_local_checks.0.path != ""
 
  - name: install pip if nrpe_pip_checks.0 is not empty
@@ -20,9 +20,9 @@
     name={{ item }}
     state=installed
    when: nrpe_pip_checks.0.name != "" 
-   with_items: nrpe_python_packages
+   with_items: "{{ nrpe_python_packages }}"
 
  - name: install dependencies with pip
    pip: name='{{ item.name }}' state=present
-   with_items: nrpe_pip_checks
+   with_items: "{{ nrpe_pip_checks }}"
    when: nrpe_pip_checks.0.name != "" 
