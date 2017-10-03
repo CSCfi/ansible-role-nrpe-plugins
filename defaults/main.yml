@@ -23,3 +23,7 @@ nrpe_pip_checks:
 
 nrpe_python_packages:
  - python-pip
+
+# Set SELinux file contexts for check scripts
+#nrpe_check_selinux_contexts:
+# - { target: "/usr/bin/pynagsystemd.py", setype: "nagios_unconfined_plugin_exec_t", state: "present" }

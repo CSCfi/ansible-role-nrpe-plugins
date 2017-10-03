@@ -7,6 +7,7 @@ This is not a place where to store nagios checks. It can:
 
  - get_url of a remote file (and check checksum)
  - copy of a local file, perhaps available in files/
+ - set SELinux file contexts for checks if needed
 
 Configuring nrpe, restarting nrpe is not part of this role.
 
@@ -26,6 +27,8 @@ nrpe_remote_url_checks:
  - { url: "http://url1/check_elasticsearch", name: "check_elasticsearch", checksum: "7e39171be1095b3c6a35c9649e3d5e73bcf76a3647b99fd7a205248a35d6a6f9" }
 nrpe_local_checks:
  - { path: "files/check_custom2", name: "check_custom2" }
+nrpe_check_selinux_contexts:
+ - { target: "files/check_custom2", setype: "nagios_unconfined_plugin_exec_t", state: "present" }
 </pre>
 
 Dependencies
