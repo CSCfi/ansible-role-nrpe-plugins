@@ -5,6 +5,8 @@
    vars:
      - nrpe_pip_checks:
        - { name: "nagiosplugin" }
+     - nrpe_local_checks:
+       - { path: "files/check_example.sh", name: "check_example" }
 
    roles:
      - ansible-role-nrpe-plugins
