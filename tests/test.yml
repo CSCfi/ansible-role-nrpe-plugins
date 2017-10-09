@@ -2,5 +2,9 @@
 
  - hosts: localhost
    remote_user: root
+   vars:
+     - nrpe_pip_checks:
+       - { name: "nagiosplugin" }
+
    roles:
      - ansible-role-nrpe-plugins

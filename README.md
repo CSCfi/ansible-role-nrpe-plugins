@@ -1,7 +1,7 @@
 ansible-role-nrpe-plugins
 =========
 
-[![Build Status](https://travis-ci.org/CSC-IT-Center-for-Science/ansible-role-nrpe-plugins.svg?branch=master)](https://travis-ci.org/CSC-IT-Center-for-Science/ansible-role-nrpe-plugins)
+[![Build Status](https://travis-ci.org/CSCfi/ansible-role-nrpe-plugins.svg?branch=master)](https://travis-ci.org/CSCfi/ansible-role-nrpe-plugins)
 
 This is not a place where to store nagios checks. It can:
 
@@ -34,7 +34,7 @@ nrpe_check_selinux_contexts:
 Dependencies
 ------------
 
-https://github.com/CSC-IT-Center-for-Science/ansible-role-nrpe
+https://github.com/CSCfi/ansible-role-nrpe
 
 Example Playbook
 ----------------
