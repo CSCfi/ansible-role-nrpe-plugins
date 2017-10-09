@@ -25,4 +25,20 @@
  - name: install dependencies with pip
    pip: name='{{ item.name }}' state=present
    with_items: "{{ nrpe_pip_checks }}"
-   when: nrpe_pip_checks.0.name != "" 
+   when: nrpe_pip_checks.0.name != ""
+
+ - name: set SELinux contexts for checks
+   sefcontext:
+     target: "{{ item.target }}"
+     setype: "{{ item.setype }}"
+     state: "{{ item.state }}"
+   with_items: "{{ nrpe_check_selinux_contexts }}"
+   register: set_selinux_contexts
+   when: nrpe_check_selinux_contexts is defined
+
+ - name: refresh SELinux context for checks
+   command: "restorecon {{ item.target }}"
+   with_items: "{{ nrpe_check_selinux_contexts }}"
+   when:
+     - nrpe_check_selinux_contexts is defined
+     - set_selinux_contexts.changed
