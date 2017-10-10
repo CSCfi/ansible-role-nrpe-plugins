@@ -2,5 +2,30 @@
 
  - hosts: localhost
    remote_user: root
+   vars:
+     - nrpe_pip_checks:
+       - { name: "nagiosplugin" }
+     - nrpe_local_checks:
+       - { path: "files/check_example.sh", name: "check_example" }
+
+   pre_tasks:
+     - name: create nrpe_group
+       group:
+               state: present
+               name: "{{ nrpe_group }}"
+     - name: create nrpe_user
+       user:
+               state: present
+               name: "{{ nrpe_user }}"
+               group: "{{ nrpe_group }}"
+     - name: create nagiosdir
+       file:
+               path: "{{ nrpe_check_location }}"
+               state: directory
+               owner: "{{ nrpe_user }}"
+               group: "{{ nrpe_group }}"
+               mode: 0775
+
+
    roles:
      - ansible-role-nrpe-plugins
