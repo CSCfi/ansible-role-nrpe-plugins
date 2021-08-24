@@ -6,7 +6,7 @@ ansible-role-nrpe-plugins
 This is not a place where to store nagios checks. It can:
 
  - get_url of a remote file (and verify checksums)
- - copy of a local file, perhaps available in files dir
+ - copy a local file to destination, perhaps available in files dir
  - set SELinux file contexts for checks if needed
 
 Configuring nrpe, restarting nrpe is not part of this role.
