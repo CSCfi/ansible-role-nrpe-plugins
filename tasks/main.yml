@@ -36,7 +36,7 @@
   when: nrpe_pip_checks.0 != ""
 
 - name: set SELinux contexts for checks
-  sefcontext:
+  community.general.sefcontext:
     target: "{{ item.target }}"
     setype: "{{ item.setype }}"
     state: "{{ item.state }}"
