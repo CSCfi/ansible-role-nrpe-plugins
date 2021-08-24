@@ -29,6 +29,8 @@ nrpe_local_checks:
  - { path: "files/check_custom2", name: "check_custom2" }
 nrpe_check_selinux_contexts:
  - { target: "files/check_custom2", setype: "nagios_unconfined_plugin_exec_t", state: "present" }
+nrpe_pip_checks:
+ - nagiosplugin
 </pre>
 
 Dependencies
