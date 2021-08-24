@@ -27,7 +27,7 @@
   package:
     name: "{{ nrpe_python_packages }}"
     state: installed
-  when: nrpe_pip_checks.0.name != ""
+  when: nrpe_pip_checks.0 != ""
 
 - name: install dependencies with pip
   pip:
