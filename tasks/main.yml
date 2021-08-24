@@ -24,16 +24,14 @@
 
  - name: install pip if nrpe_pip_checks.0 is not empty
    package:
-     name: "{{ item }}"
+     name: "{{ nrpe_python_packages }}"
      state: installed
    when: nrpe_pip_checks.0.name != ""
-   with_items: "{{ nrpe_python_packages }}"
 
  - name: install dependencies with pip
    pip:
-     name: "{{ item.name }}"
+     name: "{{ nrpe_pip_checks }}"
      state: present
-   with_items: "{{ nrpe_pip_checks }}"
    when: nrpe_pip_checks.0.name != ""
 
  - name: set SELinux contexts for checks
