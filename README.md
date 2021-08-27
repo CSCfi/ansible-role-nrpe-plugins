@@ -31,6 +31,12 @@ nrpe_check_selinux_contexts:
  - { target: "files/check_custom2", setype: "nagios_unconfined_plugin_exec_t", state: "present" }
 </pre>
 
+The format of nrpe_pip_checks has changed after v1.1.0. Correct format is now:
+<pre>
+nrpe_pip_checks:
+ - nagiosplugin
+</pre>
+
 Dependencies
 ------------
 
