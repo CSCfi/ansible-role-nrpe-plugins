@@ -16,7 +16,7 @@ RUN yum clean all && \
 # let pip install what it needs
 #    yum -y install PyYAML python-jinja2 python-httplib2 python-keyczar python-paramiko python-setuptools git python-pip && \
     yum -y install PyYAML python-jinja2 python2-httplib2 python-keyczar python-setuptools git python-pip && \
-    pip install --upgrade "pip < 19.2" && \
+    pip install setuptools -U && \
     pip install requests[security] && \
     pip install pbr==1.1.0 oslo.serialization==1.6.0 oslo.utils==2.0.0 oslo.i18n==1.7.0 \
     debtcollector==0.5.0 python-keystoneclient==1.6.0 oslo.config==1.12.0 stevedore==1.5.0 && \
