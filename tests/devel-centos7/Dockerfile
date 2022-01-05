@@ -14,13 +14,11 @@ RUN yum clean all && \
     sed -i -e 's/^Defaults.*requiretty/Defaults    !requiretty/' -e 's/^%wheel.*ALL$/%wheel    ALL=(ALL)    NOPASSWD: ALL/' /etc/sudoers && \
 # python-paramiko requires python2-cryptography which is too old for some package through pip
 # let pip install what it needs
-#    yum -y install PyYAML python-jinja2 python-httplib2 python-keyczar python-paramiko python-setuptools git python-pip && \
-    yum -y install PyYAML python-jinja2 python2-httplib2 python-keyczar python-setuptools git python-pip && \
-    pip install --upgrade "pip < 19.2" && \
+    yum -y install PyYAML python-jinja2 python-httplib2 python-keyczar python-paramiko python-setuptools git python-pip && \
+    pip install setuptools==42.0.2 && \
     pip install requests[security] && \
-    pip install pbr==1.1.0 oslo.serialization==1.6.0 oslo.utils==2.0.0 oslo.i18n==1.7.0 \
-    debtcollector==0.5.0 python-keystoneclient==1.6.0 oslo.config==1.12.0 stevedore==1.5.0 && \
-    pip install pyrax pysphere boto boto3 passlib dnspython && \
+    pip install pbr==1.1.0  debtcollector==0.5.0 stevedore==1.5.0 && \
+    pip install pysphere boto boto3 passlib dnspython && \
     sh -c 'yum -y remove libffi-devel || yum -y --setopt=tsflags=noscripts remove libffi-devel' && \
     yum -y remove $(rpm -qa "*-devel") && \
     yum -y groupremove "Development tools" && \
