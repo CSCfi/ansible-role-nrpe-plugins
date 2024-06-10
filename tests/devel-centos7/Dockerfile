@@ -1,4 +1,4 @@
-# Latest version of centos
+# "Latest version of centos" XD
 FROM centos:centos7
 MAINTAINER James Cuzella <james.cuzella@lyraphase.com>
 RUN echo -e "[global]\nindex-url=https://pypi.org/simple" > /etc/pip.conf
