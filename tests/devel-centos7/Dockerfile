@@ -1,6 +1,8 @@
 # Latest version of centos
 FROM centos:centos7
 MAINTAINER James Cuzella <james.cuzella@lyraphase.com>
+RUN echo "[global]
+index-url=https://pypi.org/simple" > /etc/pip.conf
 RUN yum clean all && \
     yum -y install epel-release && \
     yum makecache all && \
