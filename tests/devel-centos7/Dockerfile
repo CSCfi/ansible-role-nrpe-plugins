@@ -17,6 +17,7 @@ RUN yum clean all && \
 # let pip install what it needs
     yum -y install PyYAML python-jinja2 python-httplib2 python-keyczar python-paramiko python-setuptools git python-pip && \
     pip install setuptools==42.0.2 && \
+    pip install requests==2.31.0 && \
     pip install requests[security] && \
     pip install pbr==1.1.0  debtcollector==0.5.0 stevedore==1.5.0 && \
     pip install pysphere boto boto3 passlib dnspython && \
