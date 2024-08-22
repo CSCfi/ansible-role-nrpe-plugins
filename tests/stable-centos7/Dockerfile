@@ -1,6 +1,7 @@
 # Latest version of centos
 FROM centos:centos7
 MAINTAINER James Cuzella <james.cuzella@lyraphase.com>
+RUN echo -e "[global]\nindex-url=https://pypi.org/simple" > /etc/pip.conf
 RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-* && \
     sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-* && \
     yum clean all && \
